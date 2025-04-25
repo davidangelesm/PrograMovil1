@@ -9,7 +9,7 @@ class SignInPage extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          SizedBox(height: 30),
+          SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -21,19 +21,19 @@ class SignInPage extends StatelessWidget {
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: Theme.of(context).colorScheme.primaryFixed,
-                    width: 10,
+                    width: 10.0,
                   ),
                 ),
                 child: ClipOval(
                   child: Image.asset(
-                    'assets/images/Logo_Ulima.png',
+                    'assets/images/g23.png',
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 40),
           Container(
             width: MediaQuery.of(context).size.width * 0.7,
             padding: EdgeInsets.all(15),
@@ -41,50 +41,47 @@ class SignInPage extends StatelessWidget {
               color: Theme.of(context).colorScheme.primaryFixed,
               border: Border.all(
                 color: Theme.of(context).colorScheme.onSecondaryFixedVariant,
-                width: 2,
+                width: 2.0,
               ),
             ),
             child: Column(
               children: [
-                Text("Ingresa esta información"),
-                SizedBox(height: 20),
-                TextFormField(
+                Text('Ingresa Esta Información'),
+                SizedBox(height: 25),
+                TextField(
                   decoration: InputDecoration(
-                    labelText: "Usuario",
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Theme.of(context).colorScheme.primaryFixed,
-                        width: 2,
-                      ),
-                    ),
-                    contentPadding: EdgeInsets.all(10),
+                    labelText: 'Usuario',
+                    hintText: 'Ingresa tu nombre de usuario',
+                    prefixIcon: Icon(
+                      Icons.person,
+                    ), // Aquí agregamos el ícono de usuario
+                    border: OutlineInputBorder(),
                   ),
                 ),
-                SizedBox(height: 20),
-                TextFormField(
+                SizedBox(height: 15),
+                TextField(
+                  obscureText: true, // Esto oculta el texto ingresado
                   decoration: InputDecoration(
-                    labelText: "Contraseña",
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Theme.of(context).colorScheme.primaryFixed,
-                        width: 2,
-                      ),
-                    ),
-                    contentPadding: EdgeInsets.all(10),
+                    labelText: 'Contraseña',
+                    hintText: 'Ingresa tu contraseña',
+                    prefixIcon: Icon(Icons.lock), // Ícono de candado
+                    border: OutlineInputBorder(),
                   ),
-                  obscureText: true,
                 ),
-                SizedBox(height: 20),
-                FilledButton(
-                  onPressed: () {},
-                  style: FilledButton.styleFrom(
-                    foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                SizedBox(height: 15),
+                ElevatedButton(
+                  onPressed: () {
+                    // Acción del botón
+                  },
+                  child: Text('Botón de 100% de Ancho'),
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(double.infinity, 50), // 100% del ancho
                   ),
-                  child: Text("Iniciar Sesión"),
                 ),
               ],
             ),
           ),
+          Text('Ingresa Esta Información'),
         ],
       ),
     );
